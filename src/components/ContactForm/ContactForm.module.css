@@ -1,0 +1,42 @@
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding-bottom: 50px;
+}
+
+.contactFormLable {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contactInputForm {
+  color: #fff;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 1px solid rgb(57, 182, 231);
+}
+
+.contactInputForm:focus {
+  border: 1px solid rgb(57, 182, 231);
+  outline: none;
+}
+
+.contactBtn {
+  font-size: 18px;
+  padding: 5px;
+  color: rgb(57, 182, 231);
+  background-color: transparent;
+  border: 1px solid rgb(57, 182, 231);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contactBtn:hover {
+  color: #fff;
+  background-color: rgb(57, 182, 231);
+  transition: background-color 0.3s, color 0.3s;
+}
