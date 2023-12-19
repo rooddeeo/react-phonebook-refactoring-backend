@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 
 const Selectors = () => {
   const contacts = useSelector(state => state.contacts);
-  console.log(contacts);
+  console.log('Selectors', contacts);
   const filter = useSelector(state => state.filter);
+  console.log('Selectors', filter);
 
   const visibleContacts = createSelector(
     [contacts, filter],
