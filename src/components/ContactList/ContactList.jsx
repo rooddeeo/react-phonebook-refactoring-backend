@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const ContactList = () => {
   const visibleContacts = useSelector(selectVisibleContacts);
+  console.log('vC', visibleContacts);
   return (
     <>
       <ul className={css.contactList}>
