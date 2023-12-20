@@ -1,6 +1,6 @@
 import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'store/contacts/operations';
+import { filterContactAction } from 'store/contacts/contactsSlice';
 
 const Filter = () => {
   const { value } = useSelector(state => state.contacts.filter);
@@ -9,7 +9,7 @@ const Filter = () => {
 
   const changeFilter = event => {
     const value = event.target.value;
-    dispatch(fetchContacts(value));
+    dispatch(filterContactAction(value));
   };
 
   return (
