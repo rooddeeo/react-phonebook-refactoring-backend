@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import css from './Filter.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'store/contacts/operations';
 
 const Filter = () => {
+  const { value } = useSelector(state => state.contacts.filter);
+
   const dispatch = useDispatch();
 
   const changeFilter = event => {
