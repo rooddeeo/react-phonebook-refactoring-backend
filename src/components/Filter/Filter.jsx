@@ -4,17 +4,11 @@ import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'store/contacts/operations';
 
 const Filter = () => {
-  const [value, setValue] = useState('');
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts(value));
-  }, [value, dispatch]);
-
   const changeFilter = event => {
-    const dataValue = event.target.value;
-    setValue(dataValue);
+    const value = event.target.value;
+    dispatch(fetchContacts(value));
   };
 
   return (
