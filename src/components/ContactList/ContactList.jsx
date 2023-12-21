@@ -7,7 +7,8 @@ import { fetchContacts } from 'store/contacts/operations.js';
 import Loader from 'components/Loader/Loader.jsx';
 
 const ContactList = () => {
-  const { contacts, isLoading } = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
+  const isLoading = useSelector(state => state.contacts.isLoading);
 
   const dispatch = useDispatch();
 
