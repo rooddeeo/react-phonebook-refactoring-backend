@@ -4,9 +4,10 @@ import Contacts from '../Contacts/Contacts.jsx';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'store/contacts/operations.js';
+import Loader from 'components/Loader/Loader.jsx';
 
 const ContactList = () => {
-  const { contacts } = useSelector(state => state.contacts.contacts);
+  const { contacts, isLoading } = useSelector(state => state.contacts.contacts);
 
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ const ContactList = () => {
   console.log('vC', visibleContacts);
   return (
     <>
+      {isLoading && <Loader />}
       <ul className={css.contactList}>
         {visibleContacts.map(contact => (
           <Contacts key={contact.id} contact={contact} />

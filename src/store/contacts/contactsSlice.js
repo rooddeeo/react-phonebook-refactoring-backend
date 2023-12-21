@@ -42,11 +42,13 @@ const contactsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addContactNew.fulfilled, (state, { payload }) => {
-        state.addContact = payload;
+        state.contacts = [...state.contacts, payload];
         state.isLoading = false;
       })
       .addCase(contactDelete.fulfilled, (state, { payload }) => {
-        state.deleteContact = payload;
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== payload.id
+        );
         state.isLoading = false;
       });
   },
