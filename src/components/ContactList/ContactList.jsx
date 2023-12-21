@@ -13,7 +13,7 @@ const ContactList = () => {
   const isLoading = useSelector(state => state.contacts.isLoading);
   const errorBackEnd = useSelector(state => state.contacts.error);
   const visibleContacts = useSelector(selectVisibleContacts);
-  console.log(errorBackEnd);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
