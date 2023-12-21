@@ -5,22 +5,23 @@ import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'store/contacts/operations.js';
 import Loader from 'components/Loader/Loader.jsx';
+import ErrorBackEnd from 'components/ErrorBackEnd/ErrorBackEnd.jsx';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
-  const isLoading = useSelector(state => state.contacts.isLoading);
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts(contacts));
-  }, [contacts, dispatch]);
-
+  const isLoading = useSelector(state => state.contacts.isLoading);
+  const errorBackEnd = useSelector(state => state.contacts.error);
   const visibleContacts = useSelector(selectVisibleContacts);
-  console.log('vC', visibleContacts);
+  console.log(errorBackEnd);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <>
       {isLoading && <Loader />}
+      {errorBackEnd && <ErrorBackEnd errorBackEnd={errorBackEnd} />}
       <ul className={css.contactList}>
         {visibleContacts.map(contact => (
           <Contacts key={contact.id} contact={contact} />
